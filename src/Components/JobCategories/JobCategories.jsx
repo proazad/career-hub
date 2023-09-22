@@ -13,7 +13,7 @@ const JobCategories = () => {
         <h2 className="text-5xl font-extrabold">Job Category List</h2>
         <p className="text-base font-medium">
           Explore thousands of job opportunities with all the information you
-          need. Its your futur
+          need. Its your future
         </p>
       </div>
       <div className="grid grid-cols-4 gap-10 my-8">
