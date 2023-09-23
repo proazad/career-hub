@@ -1,4 +1,7 @@
 import { AiOutlineDollarCircle } from "react-icons/ai";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 import {
   MdWorkOutline,
   MdCall,
@@ -6,6 +9,7 @@ import {
   MdOutlineLocationOn,
 } from "react-icons/md";
 import { useLoaderData, useParams } from "react-router-dom";
+import { saveJobApplication } from "../utility/localstorage";
 const JobDetails = () => {
   const Jobs = useLoaderData();
   const { id } = useParams();
@@ -20,9 +24,33 @@ const JobDetails = () => {
     salary,
   } = job;
   const { phone, email, address } = contact_information;
-  console.log(job, id);
+  const handleApplyJob = () => {
+    saveJobApplication(id);
+    toast.success("You have applied Successfully!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
   return (
     <div className="my-20 container mx-auto px-2 lg:px-0">
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <h2 className="text-5xl font-extrabold text-center">Job Details</h2>
       <div className="grid grid-cols-6 gap-5 py-10">
         <div className="col-span-4 space-y-5">
@@ -94,7 +122,12 @@ const JobDetails = () => {
               </div>
             </div>
           </div>
-          <button className="w-full btn bg-violet-400 text-white hover:text-violet-400 hover:border-violet-400">Apply Now</button>
+          <button
+            onClick={handleApplyJob}
+            className="w-full btn bg-violet-400 text-white hover:text-violet-400 hover:border-violet-400"
+          >
+            Apply Now
+          </button>
         </div>
       </div>
     </div>

@@ -13,7 +13,7 @@ const FeaturedJob = ({ featuredJob }) => {
     salary,
   } = featuredJob;
   return (
-    <div className="border border-gray-200 p-5 space-y-6 rounded-md">
+    <div className="border border-gray-200 p-5 space-y-4 rounded-md">
       <img src={logo} alt={job_title} draggable="false"></img>
       <div>
         <h3 className="text-2xl font-extrabold">{job_title}</h3>
@@ -28,17 +28,17 @@ const FeaturedJob = ({ featuredJob }) => {
         </span>
       </div>
       <div className="flex gap-5">
-        <span className="flex gap-2 text-xl font-medium text-gray-400">
+        <span className="flex items-center gap-1 text-lg font-medium text-gray-400">
           <FaLocationDot />
           {location}
         </span>
-        <span className="flex gap-2 text-xl font-medium text-gray-400">
+        <span className="flex items-center gap-1 text-lg font-medium text-gray-400">
           <FaDollarSign />
           Salary: {salary}
         </span>
       </div>
       <Link to={`/job/${id}`}>
-        <button className="border hover:border-violet-400 bg-violet-400 hover:bg-inherit rounded-md text-base font-bold text-white duration-300 hover:text-violet-400 px-4 py-2">
+        <button className="border hover:border-violet-400 bg-gradient-to-r from-[#7E90FE] to-[#9873FF] rounded-md text-base font-bold text-white duration-300 my-3 px-4 py-2">
           View Details
         </button>
       </Link>

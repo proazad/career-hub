@@ -27,7 +27,7 @@ const FeaturedJobs = () => {
         ))}
       </div>
       <div className={jobslength === featuredJobs.length ? 'hidden' : 'text-center'}>
-        <button onClick={()=> setJobLength(6)} className="btn btn-primary">See All Jobs</button>
+        <button onClick={()=> setJobLength(6)} className="btn bg-gradient-to-r from-[#7E90FE] to-[#9873FF] text-white">See All Jobs</button>
       </div>
     </div>
   );
