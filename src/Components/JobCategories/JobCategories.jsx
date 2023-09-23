@@ -3,7 +3,7 @@ import Category from "../Category/Category";
 const JobCategories = () => {
   const [categries, setCategories] = useState([]);
   useEffect(() => {
-    fetch("./data/categories.json")
+    fetch("/categories.json")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);
